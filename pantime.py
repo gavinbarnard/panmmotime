@@ -8,7 +8,7 @@ from math import floor
 def find_time():
     initial_epoch = 1739274274
 
-    # Feb 11 2025 11:44:43 = 07:00 game time
+    # Feb 11 2025 11:44:34 = 07:00 game time
 
     current_time = floor(time())
 
