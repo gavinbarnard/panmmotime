@@ -16,7 +16,7 @@ def find_time():
     day_hour = (4*60)+48
     night_hour = (2*60)+24
 
-    day = day_hour*13
+    day = day_hour*12
     night = night_hour*12
 
     fullday= day+night
