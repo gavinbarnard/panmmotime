@@ -8,7 +8,7 @@ from math import floor
 def find_time():
     initial_epoch = 1739274274
 
-    # Feb 11 2025 11:44:34 = 07:00 game time
+    # Feb 11 2025 11:44:43 = 07:00 game time
 
     current_time = floor(time())
 
@@ -26,18 +26,18 @@ def find_time():
     while difference > fullday:
         difference = difference - fullday
         days += 1 
-    if difference > day:
+    if difference > day-day_hour:  ## best I started at 07 instead of 06 
         hours = 18
-        add_hours = floor((difference - day) / night_hour)
+        add_hours = floor((difference - day + day_hour) / night_hour)
         night_time = None
         if add_hours >= 6:
             night_time = add_hours - 6
         else:
             night_time = hours + add_hours
-        remainder = ((difference - day) / night_hour) - add_hours
+        remainder = ((difference - day + day_hour) / night_hour) - add_hours
         minutes = floor(remainder * 60)
         print(f"it is night_time {night_time:02d}:{minutes:02d} and days since epoch {days}")
-    if difference < day:
+    elif difference < day:
         hours = 7
         day_time = None
         add_hours = floor(difference / day_hour)
