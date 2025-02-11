@@ -38,7 +38,7 @@ def find_time():
         minutes = floor(remainder * 60)
         print(f"it is night_time {night_time:02d}:{minutes:02d} and days since epoch {days}")
     elif d_difference < day:
-        hours = 7
+        hours = 6
         day_time = None
         add_hours = floor(d_difference / day_hour)
         remainder = (d_difference / day_hour) - add_hours
