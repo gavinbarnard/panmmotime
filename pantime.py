@@ -6,9 +6,11 @@ from time import time, sleep
 from math import floor
 
 def find_time():
-    initial_epoch = 1739274274
-
+    #initial_epoch = 1739274274
     # Feb 11 2025 11:44:34 = 07:00 game time
+
+    initial_epoch = 1739273986
+    # FEB 11 2025 11:39:46 = 06:00 game time
 
     current_time = floor(time())
 
@@ -24,15 +26,15 @@ def find_time():
     difference = current_time - initial_epoch
     days = floor(difference / fullday)
     d_difference = difference - (days * fullday)
-    if d_difference > day-day_hour:  ## because I started at 07 instead of 06 
+    if d_difference > day: 
         hours = 18
-        add_hours = floor((d_difference - day + day_hour) / night_hour)
+        add_hours = floor((d_difference - day ) / night_hour)
         night_time = None
         if add_hours >= 6:
             night_time = add_hours - 6
         else:
             night_time = hours + add_hours
-        remainder = ((d_difference - day + day_hour) / night_hour) - add_hours
+        remainder = ((d_difference - day) / night_hour) - add_hours
         minutes = floor(remainder * 60)
         print(f"it is night_time {night_time:02d}:{minutes:02d} and days since epoch {days}")
     elif d_difference < day:
